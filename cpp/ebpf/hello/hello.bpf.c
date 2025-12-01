@@ -1,4 +1,4 @@
-#include "vmlinux.h"         // 1. 包含内核所有数据结构定义 (CO-RE 核心)
+#include "../vmlinux.h"      // 1. 包含内核所有数据结构定义 (CO-RE 核心)
 #include <bpf/bpf_helpers.h> // 2. 包含 bpf_printk 等辅助函数
 
 char LICENSE[] SEC("license") =
