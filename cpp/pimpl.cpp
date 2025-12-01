@@ -12,9 +12,9 @@ struct Widget {
 private:
   struct Impl;
   std::unique_ptr<Impl> pImpl;
-  Widget(std::unique_ptr<Impl> pImpl);
 
 public:
+  Widget(std::unique_ptr<Impl> pImpl);
   static std::shared_ptr<Widget> make(int a);
 };
 
@@ -28,7 +28,7 @@ private:
 
 /* .cpp section */
 std::shared_ptr<Widget> Widget::make(int a) {
-    return std::make_shared<Widget>(std::move(std::make_unique<Impl>(a)));
+    return std::make_shared<Widget>(std::unique_ptr<Impl>(new Impl(a)));
 }
 
 Widget::Widget(std::unique_ptr<Impl> pImpl) : pImpl(std::move(pImpl)) {}
